@@ -12,13 +12,14 @@ class PostList extends Component {
       return <div>PostList</div>;
     }
     const { posts } = this.props.posts;
-    return posts.map(post => {
-      return <div>{post.title}</div>;
+    return posts.map((post, index) => {
+      return <div key={index}>{post.title}</div>;
     });
   }
 }
 
 const mapStateToProps = state => {
+  debugger;
   return {
     posts: state.posts
   };

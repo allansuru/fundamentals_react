@@ -1,10 +1,13 @@
 export const postsReducer = () => {};
 
-export default (state, action) => {
-  if (action.type === "FETCH_POSTS") {
-    return {
-      posts: action.payload
-    };
+export default (state = null, action) => {
+  switch (action.type) {
+    case "FETCH_POSTS":
+      return {
+        ...state,
+        posts: action.payload
+      };
+    default:
+      return state;
   }
-  return null;
 };
