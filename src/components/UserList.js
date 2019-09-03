@@ -8,7 +8,6 @@ class UserList extends Component {
     if (!this.props.users) {
       return <div>Loading...</div>;
     }
-    debugger;
     const userFiltered = this.props.users.users.filter(
       user => id === user.id
     )[0];
