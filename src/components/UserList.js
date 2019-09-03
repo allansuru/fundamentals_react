@@ -9,7 +9,7 @@ class UserList extends Component {
       return <div>Loading...</div>;
     }
     const { users } = this.props.users;
-    const userFiltered = users.filter(user => id === user.id)[0];
+    const userFiltered = users.find(user => id === user.id);
 
     return (
       <div className="ui list">
