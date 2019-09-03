@@ -8,9 +8,8 @@ class UserList extends Component {
     if (!this.props.users) {
       return <div>Loading...</div>;
     }
-    const userFiltered = this.props.users.users.filter(
-      user => id === user.id
-    )[0];
+    const { users } = this.props.users;
+    const userFiltered = users.filter(user => id === user.id)[0];
 
     return (
       <div className="ui list">
