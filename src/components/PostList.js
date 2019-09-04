@@ -6,7 +6,7 @@ import UserList from "./UserList";
 class PostList extends Component {
   componentDidMount() {
     this.props.fetchPosts();
-    this.props.fetchUsers(1);
+    this.props.fetchUsers();
   }
 
   renderList = posts => {
@@ -19,8 +19,7 @@ class PostList extends Component {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
             </div>
-
-            <UserList id={post.userId} />
+            {this.getUserById(post.userId)}
           </div>
         </div>
       );
@@ -32,11 +31,18 @@ class PostList extends Component {
       return <div>PostList</div>;
     }
     const { posts } = this.props.posts;
-
     return (
       <div className="ui relaxed divided list">{this.renderList(posts)}</div>
     );
   }
+
+  getUserById = userId => {
+    if (this.props.users) {
+      const { users } = this.props.users;
+      const user = users.find(user => user.id === userId);
+      return <UserList user={user} />;
+    }
+  };
 }
 
 const mapStateToProps = state => {
